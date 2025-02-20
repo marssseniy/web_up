@@ -93,6 +93,7 @@
         <input type="text" placeholder="Name" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Phone" id="user_phone">
+        <div id="error"></div>
         <button id="order">Оформить</button>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
@@ -107,6 +108,30 @@
         });
 
         order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let name = document.getElementById("user_name").value;
+            let email = document.getElementById("user_email").value;
+            let phone = document.getElementById("user_phone").value;
+            if(name.length < 2) {
+                document.getElementById("error").innerText = 'Такого имени не существует!';
+                return;
+            }
+            if(email.length < 10) {
+                document.getElementById("error").innerText = 'Такой почты не существует!';
+                return;
+            }
+            if((phone.length < 10) or (phone.length > 12)) {
+                document.getElementById("error").innerText = 'Такого номера не существует!';
+                return;
+            }
+
+            let data = {
+                name: name,
+                email: email,
+                phone: phone
+            }
+            tg.sendData(JSON.stringify(data));
+
             tg.close();
         });
     </script>
