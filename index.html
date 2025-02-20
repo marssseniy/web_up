@@ -113,7 +113,7 @@
             let email = document.getElementById("user_email").value;
             let phone = document.getElementById("user_phone").value;
             if(name.length < 2) {
-                document.getElementById("error").innerText = 'Такого имени не существует!';
+                document.getElementById("error").innerText = 'Слишком короткое имя!';
                 return;
             }
             if(email.length < 10) {
