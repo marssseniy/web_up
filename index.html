@@ -87,7 +87,7 @@
         <h1>Онлайн магазин</h1>
         <img src="https://resizer.mail.ru/p/a6b94eee-182d-57e6-b3f1-62ffc7531bd0/AQAKCRWEe1svjI5xUE7O7Il2B-XNCoDZUpVzjW39-KSWQMw1n1OZeXhr-DFBPj_sovm9BpYrsWuKTs62l0NBO94DhY0.jpg">
         <p>Добро пожаловать в интернет-магазин Арсения Гайдыма! Чувствуйте себя как дома!</p>
-        <button>Купить</button>
+        <button id="buy">Купить</button>
     </div>
     <form id="form">
         <input type="text" placeholder="Name" id="user_name">
@@ -96,5 +96,15 @@
         <button id="order">Оформить</button>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+        }
+    </script>
 </body>
 </html>
