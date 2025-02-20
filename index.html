@@ -78,8 +78,7 @@
 
         input:focus {
             border-color: #db5d5d;
-        }
-        
+        }       
     </style>
 </head>
 <body>
@@ -90,6 +89,7 @@
         <button id="buy">Купить</button>
     </div>
     <form id="form">
+        <h1>Оформление покупки</h1>
         <input type="text" placeholder="Name" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Phone" id="user_phone">
@@ -103,8 +103,12 @@
 
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
-        }
+            document.getElementById("form").style.display = "block";            
+        });
+
+        order.addEventListener("click" () => {
+            tg.close();
+        });
     </script>
 </body>
 </html>
